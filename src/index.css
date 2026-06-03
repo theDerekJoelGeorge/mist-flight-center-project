@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --color-bg: #0D0D0D;
+  --color-bg-card: #141414;
+  --color-bg-surface: #1A1A1A;
+  --color-text-primary: #F5F0E8;
+  --color-text-secondary: #9A9488;
+  --color-text-muted: #5C5850;
+  --color-accent: #C8714A;
+  --color-accent-cool: #6B8F7A;
+  --color-border: #2A2A2A;
+}
+
+/* Base custom styles to guarantee beautiful and native appearance */
+html, body {
+  background-color: #0D0D0D;
+  color: #F5F0E8;
+  font-family: "DM Sans", sans-serif;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbars for slick editorial view but allow text overflow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Sweep loading line keyframes */
+@keyframes sweep {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.loading-sweep {
+  width: 60%;
+  height: 2px;
+  background-color: #C8714A;
+  position: absolute;
+  top: 0;
+  animation: sweep 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
