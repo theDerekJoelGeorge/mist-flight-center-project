@@ -130,12 +130,7 @@ export default function App() {
       console.warn("Failed to retrieve profile from localStorage", e);
     }
 
-    // 4. Transition Splash Screen
-    const timer = setTimeout(() => {
-      setCurrentScreen("mood");
-    }, 1800);
-
-    return () => clearTimeout(timer);
+    // 4. Progress is now governed manually by the Click to Continue button on the landing splash screen.
   }, []);
 
   // Cycle Loading status copy
@@ -403,7 +398,7 @@ export default function App() {
                 <AlertTriangle className="h-6 w-6" />
               </div>
               <h1 className="font-serif text-3xl font-medium tracking-tight text-[#F5F0E8] mb-2">
-                Mise Setup Dashboard
+                Your Choice Setup Dashboard
               </h1>
               <p className="text-[#9A9488] text-sm leading-relaxed mb-6">
                 To start tasting the neighborhood, specify your private credentials in Google AI Studio.
@@ -518,21 +513,32 @@ export default function App() {
         )}
 
         {/* ========================================================
-            SCREEN 1: SPLASH SCREEN
+            SCREEN 1: START SCREEN
            ======================================================== */}
         {currentScreen === "splash" && (
-          <div className="flex-1 w-full flex flex-col items-center justify-center bg-[#0D0D0D]">
-            <div className="flex flex-col items-center">
+          <div className="flex-1 w-full flex flex-col justify-between py-12 px-4 bg-[#0D0D0D] text-center">
+            {/* Middle Branding Block (Perfect Centering) */}
+            <div className="flex-1 flex flex-col justify-center items-center">
               {/* App Brand Title */}
-              <h1 className="font-serif text-[52px] font-medium text-[#F5F0E8] tracking-normal select-none relative pb-3 leading-none opacity-100 transition-all duration-300 animate-[fadeIn_800ms_ease-out]">
-                Mise
+              <h1 className="font-serif text-[48px] font-medium text-[#F5F0E8] tracking-tight select-none pb-2 leading-none animate-[fadeIn_800ms_ease-out]">
+                Your Choice
               </h1>
               {/* Animated centering rule */}
-              <div className="w-16 h-[1px] bg-[#C8714A] transition-all duration-700 mx-auto animate-[widthSpread_1.2s_cubic-bezier(0.16,1,0.3,1)] mb-4" />
-              {/* App elegant Tagline */}
-              <p className="font-sans text-xs font-light text-[#9A9488] tracking-[0.08em] uppercase text-center animate-[fadeIn_1.4s_ease-out]">
-                Your table is waiting.
+              <div className="w-16 h-[1px] bg-[#C8714A] mx-auto animate-[widthSpread_1.2s_cubic-bezier(0.16,1,0.3,1)] mb-6" />
+              {/* App Quirky Tagline */}
+              <p className="font-serif text-sm italic text-[#9A9488] font-light tracking-wide whitespace-nowrap select-none animate-[fadeIn_1.4s_ease-out]">
+                Because “I don't know” is not a dinner plan.
               </p>
+            </div>
+
+            {/* Bottom Interactive CTA */}
+            <div className="w-full flex justify-center mt-auto">
+              <button
+                onClick={() => setCurrentScreen("mood")}
+                className="w-full max-w-[280px] bg-transparent hover:bg-[#C8714A]/[0.06] border border-[#C8714A] text-[#C8714A] active:scale-[0.97] py-4 rounded-xl font-sans text-xs font-semibold tracking-wider uppercase transition-all duration-150 animate-[fadeIn_1.8s_ease-out]"
+              >
+                Click to Continue
+              </button>
             </div>
           </div>
         )}
