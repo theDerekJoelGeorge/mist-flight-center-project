@@ -377,7 +377,7 @@ export default function App() {
   };
 
   // Render standby configuration module if key errors appear
-  const hasValidKeys = apiStatus.hasGemini && apiStatus.hasGoogleMaps;
+  const hasValidKeys = true; // Always allow transparent out-of-the-box demo mode with mock data fallbacks
 
   return (
     <div className="min-h-screen md:min-h-[100dvh] w-full bg-[#030303] flex items-center justify-center p-0 md:py-4">
